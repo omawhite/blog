@@ -1,5 +1,5 @@
 import { getPayload } from 'payload'
-import config from '../src/payload.config.js'
+import config from '../payload.config'
 import postsData from './seed-data/posts.json'
 
 async function run() {
