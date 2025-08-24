@@ -1,0 +1,362 @@
+[
+  {
+    "title": "Getting Started with Next.js and Payload CMS",
+    "slug": "getting-started-nextjs-payload",
+    "publishedAt": "2024-01-15T10:00:00.000Z",
+    "status": "published",
+    "description": "Learn how to build modern web applications using Next.js 15 and Payload CMS. This comprehensive guide covers everything from setup to deployment.",
+    "content": {
+      "root": {
+        "type": "root",
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Next.js 15 combined with Payload CMS creates a powerful foundation for building modern web applications. In this post, we'll explore how to get started with this technology stack.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 1,
+                "mode": "normal",
+                "style": "",
+                "text": "Why Choose Next.js and Payload?",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Next.js provides excellent developer experience with features like server-side rendering, static site generation, and API routes. Payload CMS adds a powerful, TypeScript-first headless CMS that integrates seamlessly with Next.js applications.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "Building Responsive UI Components with shadcn/ui",
+    "slug": "responsive-ui-components-shadcn",
+    "publishedAt": "2024-01-20T14:30:00.000Z",
+    "status": "published",
+    "description": "Discover how to create beautiful, accessible, and responsive UI components using shadcn/ui and Tailwind CSS in your React applications.",
+    "content": {
+      "root": {
+        "type": "root",
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Creating consistent and beautiful user interfaces is crucial for modern web applications. The shadcn/ui library provides a collection of copy-and-paste components built with Radix UI and Tailwind CSS.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 1,
+                "mode": "normal",
+                "style": "",
+                "text": "Component Architecture",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Each component is designed to be fully customizable while maintaining accessibility standards. The use of Class Variance Authority (CVA) allows for flexible styling variants.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "Mastering TypeScript in Modern Web Development",
+    "slug": "mastering-typescript-web-development",
+    "publishedAt": "2024-02-01T09:15:00.000Z",
+    "status": "published",
+    "description": "Deep dive into TypeScript best practices, advanced types, and how to leverage TypeScript for better developer experience and code quality.",
+    "content": {
+      "root": {
+        "type": "root",
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "TypeScript has become an essential tool for JavaScript developers, providing static type checking and enhanced developer tooling. Let's explore advanced TypeScript patterns and best practices.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 1,
+                "mode": "normal",
+                "style": "",
+                "text": "Advanced Type Patterns",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Understanding utility types, conditional types, and mapped types can significantly improve your TypeScript code quality and maintainability.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "Optimizing Performance in React Applications",
+    "slug": "optimizing-performance-react-apps",
+    "publishedAt": "2024-02-10T16:45:00.000Z",
+    "status": "published",
+    "description": "Learn practical techniques for optimizing React application performance, including memoization, code splitting, and bundle analysis.",
+    "content": {
+      "root": {
+        "type": "root",
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Performance optimization is crucial for delivering excellent user experiences. React provides several built-in tools and patterns for optimizing application performance.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 1,
+                "mode": "normal",
+                "style": "",
+                "text": "Memoization Strategies",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "React.memo, useMemo, and useCallback are powerful tools for preventing unnecessary re-renders and expensive calculations.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ]
+      }
+    }
+  },
+  {
+    "title": "Building Scalable APIs with Node.js and Express",
+    "slug": "scalable-apis-nodejs-express",
+    "publishedAt": "2024-02-18T11:20:00.000Z",
+    "status": "draft",
+    "description": "Explore best practices for building robust, scalable APIs using Node.js and Express, including middleware, error handling, and testing strategies.",
+    "content": {
+      "root": {
+        "type": "root",
+        "direction": "ltr",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "Building scalable APIs requires careful consideration of architecture, error handling, and performance. This guide covers essential patterns for Node.js and Express applications.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 1,
+                "mode": "normal",
+                "style": "",
+                "text": "API Design Principles",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          },
+          {
+            "children": [
+              {
+                "detail": 0,
+                "format": 0,
+                "mode": "normal",
+                "style": "",
+                "text": "RESTful design, proper HTTP status codes, and consistent response formats are fundamental to building maintainable APIs.",
+                "type": "text",
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "format": "",
+            "indent": 0,
+            "type": "paragraph",
+            "version": 1
+          }
+        ]
+      }
+    }
+  }
+]
