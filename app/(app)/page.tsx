@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 import config from '@/payload.config'
 
-import { PostSnippet } from '@/components/ui/PostSnippet/PostSnippet'
+import { PostSnippet } from '@/components/PostSnippet/PostSnippet'
 
 async function getHomePageData() {
   const payloadConfig = await config
