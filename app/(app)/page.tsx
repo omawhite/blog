@@ -5,7 +5,8 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { Metadata } from 'next'
 
 import config from '@/payload.config'
-import './styles.css'
+
+import { PostSnippet } from '@/components/ui/PostSnippet/PostSnippet'
 
 async function getHomePageData() {
   const payloadConfig = await config
@@ -131,7 +132,7 @@ export default async function HomePage() {
                 View all posts →
               </Link>
             </div>
-            {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {recentPosts.map((post) => (
                 <PostSnippet
                   key={post.id}
@@ -143,7 +144,7 @@ export default async function HomePage() {
                   renderLink={({ href, children }) => <Link href={href}>{children}</Link>}
                 />
               ))}
-            </div> */}
+            </div>
           </section>
         )}
       </div>
