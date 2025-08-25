@@ -10,7 +10,7 @@ async function run() {
 
     await payload.updateGlobal({
       slug: 'home-page',
-      //@ts-ignore that strings don't perfectly match the enums
+      //@ts-expect-error that strings don't perfectly match the enums
       data: homePageData,
     })
 

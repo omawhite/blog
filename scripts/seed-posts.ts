@@ -12,7 +12,7 @@ async function run() {
       console.log(`Creating post: ${post.title}`)
       await payload.create({
         collection: 'posts',
-        //@ts-ignore that status is a string
+        //@ts-expect-error that status is a string
         data: post,
       })
     }
