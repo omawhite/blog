@@ -14,19 +14,18 @@ interface PostPageProps {
   }>
 }
 
-// Add this back in once I figure out how to get railway build to work with this
-// export async function generateStaticParams() {
-//   try {
-//     const slugs = await getAllPostSlugs()
+export async function generateStaticParams() {
+  try {
+    const slugs = await getAllPostSlugs()
 
-//     return slugs.map((slug) => ({
-//       slug,
-//     }))
-//   } catch (error) {
-//     console.error('Error fetching post slugs:', error)
-//     return []
-//   }
-// }
+    return slugs.map((slug) => ({
+      slug,
+    }))
+  } catch (error) {
+    console.error('Error fetching post slugs:', error)
+    return []
+  }
+}
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { slug } = await params
