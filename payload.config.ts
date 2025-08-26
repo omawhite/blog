@@ -1,23 +1,25 @@
 // storage-adapter-import-placeholder
-import { postgresAdapter } from '@payloadcms/db-postgres'
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
-import sharp from 'sharp'
+import { postgresAdapter } from "@payloadcms/db-postgres";
+import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import path from "path";
+import { buildConfig } from "payload";
+import { fileURLToPath } from "url";
+import sharp from "sharp";
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
-import { Posts } from './collections/Posts'
-import { HomePage } from './globals/HomePage'
+import { Users } from "./collections/Users";
+import { Media } from "./collections/Media";
+import { Posts } from "./collections/Posts";
+import { HomePage } from "./globals/HomePage";
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
-const isBuild = process.env.RAILWAY_BUILD === 'true'
+const isBuild = process.env.RAILWAY_BUILD === "true";
 
-const databaseConnectionString = isBuild ? process.env.DATABASE_PUBLIC_URL : process.env.DATABASE_URL
+const databaseConnectionString = isBuild
+  ? process.env.DATABASE_PUBLIC_URL
+  : process.env.DATABASE_URL;
 
 export default buildConfig({
   admin: {
@@ -29,9 +31,9 @@ export default buildConfig({
   collections: [Users, Media, Posts],
   globals: [HomePage],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: postgresAdapter({
     pool: {
@@ -43,4 +45,4 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
-})
+});

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { PostSnippet } from './PostSnippet'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { PostSnippet } from "./PostSnippet";
 
 const meta = {
-  title: 'Components/Content/PostSnippet',
+  title: "Components/Content/PostSnippet",
   component: PostSnippet,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
         component: `A post snippet component designed to display article/blog post previews with customizable variants. Built with shadcn/ui patterns and supports different sizes and visual styles.
@@ -33,112 +33,121 @@ The component handles date formatting automatically and supports custom link com
   },
   argTypes: {
     title: {
-      control: { type: 'text' },
-      description: 'The title of the post (required)',
+      control: { type: "text" },
+      description: "The title of the post (required)",
       table: {
-        type: { summary: 'string' },
-        category: 'Content',
+        type: { summary: "string" },
+        category: "Content",
       },
     },
     description: {
-      control: { type: 'text' },
-      description: 'Optional description or excerpt of the post',
+      control: { type: "text" },
+      description: "Optional description or excerpt of the post",
       table: {
-        type: { summary: 'string' },
-        category: 'Content',
+        type: { summary: "string" },
+        category: "Content",
       },
     },
     publishedAt: {
-      control: { type: 'text' },
-      description: 'ISO date string for the publication date',
+      control: { type: "text" },
+      description: "ISO date string for the publication date",
       table: {
-        type: { summary: 'string' },
-        category: 'Content',
+        type: { summary: "string" },
+        category: "Content",
       },
     },
     href: {
-      control: { type: 'text' },
-      description: 'URL the post snippet should link to (required)',
+      control: { type: "text" },
+      description: "URL the post snippet should link to (required)",
       table: {
-        type: { summary: 'string' },
-        category: 'Navigation',
+        type: { summary: "string" },
+        category: "Navigation",
       },
     },
     size: {
-      control: { type: 'select' },
-      options: ['sm', 'default', 'lg'],
-      description: 'Controls the typography size and padding',
+      control: { type: "select" },
+      options: ["sm", "default", "lg"],
+      description: "Controls the typography size and padding",
       table: {
-        type: { summary: 'sm | default | lg' },
-        defaultValue: { summary: 'default' },
-        category: 'Appearance',
+        type: { summary: "sm | default | lg" },
+        defaultValue: { summary: "default" },
+        category: "Appearance",
       },
     },
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'ghost'],
-      description: 'Visual style variant - default shows border, ghost is borderless',
+      control: { type: "select" },
+      options: ["default", "ghost"],
+      description:
+        "Visual style variant - default shows border, ghost is borderless",
       table: {
-        type: { summary: 'default | ghost' },
-        defaultValue: { summary: 'default' },
-        category: 'Appearance',
+        type: { summary: "default | ghost" },
+        defaultValue: { summary: "default" },
+        category: "Appearance",
       },
     },
     renderLink: {
       control: false,
-      description: 'Custom link component renderer for framework integration',
+      description: "Custom link component renderer for framework integration",
       table: {
-        type: { summary: '(props: { href: string; children: React.ReactNode }) => React.ReactNode' },
-        category: 'Advanced',
+        type: {
+          summary:
+            "(props: { href: string; children: React.ReactNode }) => React.ReactNode",
+        },
+        category: "Advanced",
       },
     },
     className: {
-      control: { type: 'text' },
-      description: 'Additional CSS classes to apply',
+      control: { type: "text" },
+      description: "Additional CSS classes to apply",
       table: {
-        type: { summary: 'string' },
-        category: 'Styling',
+        type: { summary: "string" },
+        category: "Styling",
       },
     },
   },
   args: {
-    title: 'Getting Started with React Components',
-    description: 'Learn how to build reusable and maintainable React components using modern best practices and TypeScript.',
-    publishedAt: '2024-01-15T10:30:00Z',
-    href: '/blog/getting-started-react-components',
-    size: 'default',
-    variant: 'default',
+    title: "Getting Started with React Components",
+    description:
+      "Learn how to build reusable and maintainable React components using modern best practices and TypeScript.",
+    publishedAt: "2024-01-15T10:30:00Z",
+    href: "/blog/getting-started-react-components",
+    size: "default",
+    variant: "default",
   },
-  tags: ['autodocs'],
-} satisfies Meta<typeof PostSnippet>
+  tags: ["autodocs"],
+} satisfies Meta<typeof PostSnippet>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 // Default story showing most common usage
 export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'The default PostSnippet with all common props including title, description, and publication date.',
+        story:
+          "The default PostSnippet with all common props including title, description, and publication date.",
       },
     },
   },
-}
+};
 
 // Story showcasing all size variants
 export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Demonstration of all available size variants: small, default, and large with consistent content.',
+        story:
+          "Demonstration of all available size variants: small, default, and large with consistent content.",
       },
     },
   },
   render: () => (
     <div className="space-y-6 max-w-2xl">
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Small</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Small
+        </h4>
         <PostSnippet
           size="sm"
           variant="default"
@@ -149,7 +158,9 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Default</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Default
+        </h4>
         <PostSnippet
           size="default"
           variant="default"
@@ -160,7 +171,9 @@ export const Sizes: Story = {
         />
       </div>
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Large</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Large
+        </h4>
         <PostSnippet
           size="lg"
           variant="default"
@@ -172,21 +185,24 @@ export const Sizes: Story = {
       </div>
     </div>
   ),
-}
+};
 
 // Story showcasing visual variants
 export const Variants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Comparison of default variant (with border) and ghost variant (borderless).',
+        story:
+          "Comparison of default variant (with border) and ghost variant (borderless).",
       },
     },
   },
   render: () => (
     <div className="space-y-6 max-w-2xl">
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Default (with border)</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Default (with border)
+        </h4>
         <PostSnippet
           variant="default"
           title="Building Scalable Design Systems"
@@ -196,7 +212,9 @@ export const Variants: Story = {
         />
       </div>
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Ghost (borderless)</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Ghost (borderless)
+        </h4>
         <PostSnippet
           variant="ghost"
           title="Building Scalable Design Systems"
@@ -207,20 +225,21 @@ export const Variants: Story = {
       </div>
     </div>
   ),
-}
+};
 
 // Story with minimal content (title only)
 export const MinimalContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'PostSnippet with only required props (title and href) demonstrating minimal usage.',
+        story:
+          "PostSnippet with only required props (title and href) demonstrating minimal usage.",
       },
     },
   },
   args: {
-    title: 'Quick Tips for Better Code Reviews',
-    href: '/blog/code-review-tips',
+    title: "Quick Tips for Better Code Reviews",
+    href: "/blog/code-review-tips",
     description: undefined,
     publishedAt: undefined,
   },
@@ -229,51 +248,56 @@ export const MinimalContent: Story = {
       <PostSnippet {...args} />
     </div>
   ),
-}
+};
 
 // Story with long content
 export const LongContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'PostSnippet with longer title and description to test text wrapping and layout.',
+        story:
+          "PostSnippet with longer title and description to test text wrapping and layout.",
       },
     },
   },
   args: {
-    title: 'The Complete Guide to Modern Frontend Development: From Vanilla JavaScript to Advanced React Patterns',
-    description: 'Dive deep into the evolution of frontend development, exploring everything from fundamental JavaScript concepts to advanced React patterns, state management solutions, performance optimization techniques, and modern tooling that powers today\'s web applications.',
-    publishedAt: '2024-01-20T16:45:00Z',
-    href: '/blog/complete-frontend-guide',
+    title:
+      "The Complete Guide to Modern Frontend Development: From Vanilla JavaScript to Advanced React Patterns",
+    description:
+      "Dive deep into the evolution of frontend development, exploring everything from fundamental JavaScript concepts to advanced React patterns, state management solutions, performance optimization techniques, and modern tooling that powers today's web applications.",
+    publishedAt: "2024-01-20T16:45:00Z",
+    href: "/blog/complete-frontend-guide",
   },
   render: (args) => (
     <div className="max-w-2xl">
       <PostSnippet {...args} />
     </div>
   ),
-}
+};
 
 // Story with custom link renderer
 export const CustomLinkRenderer: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Example using custom link renderer (useful for Next.js Link, React Router, etc.).',
+        story:
+          "Example using custom link renderer (useful for Next.js Link, React Router, etc.).",
       },
     },
   },
   args: {
-    title: 'Advanced React Patterns for Scalable Applications',
-    description: 'Explore compound components, render props, and custom hooks for building maintainable React applications.',
-    publishedAt: '2024-01-25T11:30:00Z',
-    href: '/blog/advanced-react-patterns',
+    title: "Advanced React Patterns for Scalable Applications",
+    description:
+      "Explore compound components, render props, and custom hooks for building maintainable React applications.",
+    publishedAt: "2024-01-25T11:30:00Z",
+    href: "/blog/advanced-react-patterns",
     renderLink: ({ href, children }) => (
       <a
         href={href}
         className="text-blue-600 hover:text-blue-800 transition-colors"
         onClick={(e) => {
-          e.preventDefault()
-          alert(`Custom link clicked: ${href}`)
+          e.preventDefault();
+          alert(`Custom link clicked: ${href}`);
         }}
       >
         {children}
@@ -285,14 +309,15 @@ export const CustomLinkRenderer: Story = {
       <PostSnippet {...args} />
     </div>
   ),
-}
+};
 
 // Interactive playground story
 export const Playground: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive playground to experiment with all PostSnippet props and see real-time changes.',
+        story:
+          "Interactive playground to experiment with all PostSnippet props and see real-time changes.",
       },
     },
   },
@@ -301,21 +326,24 @@ export const Playground: Story = {
       <PostSnippet {...args} />
     </div>
   ),
-}
+};
 
 // Story showing all variants combination
 export const AllVariantsCombination: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Grid showing all possible combinations of size and variant props.',
+        story:
+          "Grid showing all possible combinations of size and variant props.",
       },
     },
   },
   render: () => (
     <div className="grid grid-cols-2 gap-6 max-w-4xl">
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Default Border</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Default Border
+        </h4>
         <div className="space-y-4">
           <PostSnippet
             size="sm"
@@ -344,7 +372,9 @@ export const AllVariantsCombination: Story = {
         </div>
       </div>
       <div>
-        <h4 className="text-sm font-medium mb-3 text-muted-foreground">Ghost (No Border)</h4>
+        <h4 className="text-sm font-medium mb-3 text-muted-foreground">
+          Ghost (No Border)
+        </h4>
         <div className="space-y-4">
           <PostSnippet
             size="sm"
@@ -374,14 +404,15 @@ export const AllVariantsCombination: Story = {
       </div>
     </div>
   ),
-}
+};
 
 // Real-world blog listing example
 export const BlogListing: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'A realistic blog listing showing multiple PostSnippet components as they would appear in a real application.',
+        story:
+          "A realistic blog listing showing multiple PostSnippet components as they would appear in a real application.",
       },
     },
   },
@@ -390,7 +421,8 @@ export const BlogListing: Story = {
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Latest Blog Posts</h1>
         <p className="text-muted-foreground">
-          Insights and tutorials on modern web development, design systems, and developer tools.
+          Insights and tutorials on modern web development, design systems, and
+          developer tools.
         </p>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
@@ -439,4 +471,4 @@ export const BlogListing: Story = {
       </div>
     </div>
   ),
-}
+};

@@ -50,10 +50,7 @@ export function SiteBanner({
   };
 
   return (
-    <div
-      className={cn(siteBannerVariants({ variant }), className)}
-      {...props}
-    >
+    <div className={cn(siteBannerVariants({ variant }), className)} {...props}>
       <div className="flex items-center justify-center">
         <span className="flex-1">{message}</span>
         {dismissible && (

@@ -37,9 +37,12 @@ export function SiteNavigation({ links, className }: SiteNavigationProps) {
                 {link.label}
               </NavigationMenuLink>
             ) : (
-                <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
-                  <Link href={link.href}>{link.label}</Link>
-                </NavigationMenuLink>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                asChild
+              >
+                <Link href={link.href}>{link.label}</Link>
+              </NavigationMenuLink>
             )}
           </NavigationMenuItem>
         ))}
