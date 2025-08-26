@@ -68,107 +68,6 @@ export const Default: Story = {
   },
 };
 
-// Light theme demonstration
-export const LightTheme: Story = {
-  decorators: [
-    (Story) => (
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-        <div className="p-4 bg-background text-foreground">
-          <div className="mb-4 text-sm text-muted-foreground">
-            Theme forced to light mode - notice the sun icon is visible
-          </div>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "ModeToggle in light theme context. The sun icon is visible and the component provides options to switch themes.",
-      },
-    },
-  },
-};
-
-// Dark theme demonstration
-export const DarkTheme: Story = {
-  decorators: [
-    (Story) => (
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-        <div className="p-4 bg-background text-foreground">
-          <div className="mb-4 text-sm text-muted-foreground">
-            Theme forced to dark mode - notice the moon icon is visible
-          </div>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "ModeToggle in dark theme context. The moon icon is visible and the component provides options to switch themes.",
-      },
-    },
-    backgrounds: { default: 'dark' },
-  },
-};
-
-// System theme demonstration
-export const SystemTheme: Story = {
-  decorators: [
-    (Story) => (
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div className="p-4 bg-background text-foreground">
-          <div className="mb-4 text-sm text-muted-foreground">
-            Theme set to system preference - follows your OS theme setting
-          </div>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "ModeToggle with system theme preference. The icon and theme will automatically match your operating system's theme setting.",
-      },
-    },
-  },
-};
-
-// Multiple toggles demonstration
-export const MultipleToggles: Story = {
-  render: () => (
-    <div className="flex gap-4 items-center">
-      <div className="flex flex-col items-center gap-2">
-        <ModeToggle />
-        <span className="text-xs text-muted-foreground">Header</span>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <ModeToggle />
-        <span className="text-xs text-muted-foreground">Sidebar</span>
-      </div>
-      <div className="flex flex-col items-center gap-2">
-        <ModeToggle />
-        <span className="text-xs text-muted-foreground">Settings</span>
-      </div>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Multiple ModeToggle components showing how they stay synchronized across different locations in your app.",
-      },
-    },
-  },
-};
-
 // In different layouts
 export const InNavigation: Story = {
   render: () => (
@@ -176,9 +75,15 @@ export const InNavigation: Story = {
       <div className="flex items-center gap-4">
         <h1 className="font-semibold text-lg">My App</h1>
         <div className="hidden sm:flex gap-4">
-          <a href="#" className="text-sm hover:text-foreground/80">Home</a>
-          <a href="#" className="text-sm hover:text-foreground/80">About</a>
-          <a href="#" className="text-sm hover:text-foreground/80">Blog</a>
+          <a href="#" className="text-sm hover:text-foreground/80">
+            Home
+          </a>
+          <a href="#" className="text-sm hover:text-foreground/80">
+            About
+          </a>
+          <a href="#" className="text-sm hover:text-foreground/80">
+            Blog
+          </a>
         </div>
       </div>
       <div className="flex items-center gap-2">
@@ -205,23 +110,26 @@ export const AccessibilityFeatures: Story = {
       <div className="p-4 border rounded-lg bg-muted/50">
         <h3 className="font-semibold mb-2">Keyboard Navigation</h3>
         <p className="text-sm text-muted-foreground mb-3">
-          Try using Tab to focus the button, then Enter/Space to open the dropdown. Use arrow keys to navigate menu items.
+          Try using Tab to focus the button, then Enter/Space to open the
+          dropdown. Use arrow keys to navigate menu items.
         </p>
         <ModeToggle />
       </div>
-      
+
       <div className="p-4 border rounded-lg bg-muted/50">
         <h3 className="font-semibold mb-2">Screen Reader Support</h3>
         <p className="text-sm text-muted-foreground mb-3">
-          The button includes "Toggle theme" label for screen readers, and the dropdown menu is properly labeled.
+          The button includes "Toggle theme" label for screen readers, and the
+          dropdown menu is properly labeled.
         </p>
         <ModeToggle />
       </div>
-      
+
       <div className="p-4 border rounded-lg bg-muted/50">
         <h3 className="font-semibold mb-2">Focus Management</h3>
         <p className="text-sm text-muted-foreground mb-3">
-          Focus is properly managed when opening/closing the dropdown and selecting options.
+          Focus is properly managed when opening/closing the dropdown and
+          selecting options.
         </p>
         <ModeToggle />
       </div>
@@ -237,47 +145,6 @@ export const AccessibilityFeatures: Story = {
   },
 };
 
-// Icon transition showcase
-export const IconTransitions: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div className="text-center">
-        <h3 className="font-semibold mb-2">Icon Transitions</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          Watch the smooth transitions between sun and moon icons when switching themes
-        </p>
-        <ModeToggle />
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t">
-        <div className="text-center p-4 border rounded-lg">
-          <div className="mb-2 text-lg">☀️</div>
-          <h4 className="font-medium">Light Mode Icon</h4>
-          <p className="text-xs text-muted-foreground mt-1">
-            Sun icon visible with scale-100 and rotate-0
-          </p>
-        </div>
-        
-        <div className="text-center p-4 border rounded-lg">
-          <div className="mb-2 text-lg">🌙</div>
-          <h4 className="font-medium">Dark Mode Icon</h4>
-          <p className="text-xs text-muted-foreground mt-1">
-            Moon icon visible with scale-100 and rotate-0
-          </p>
-        </div>
-      </div>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Visual demonstration of the smooth icon transitions that occur when switching between light and dark themes.",
-      },
-    },
-  },
-};
-
 // Real-world usage examples
 export const RealWorldExamples: Story = {
   render: () => (
@@ -288,7 +155,9 @@ export const RealWorldExamples: Story = {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-bold text-xl">My Blog</h2>
-              <p className="text-sm text-muted-foreground">Thoughts on web development</p>
+              <p className="text-sm text-muted-foreground">
+                Thoughts on web development
+              </p>
             </div>
             <ModeToggle />
           </div>
@@ -307,7 +176,9 @@ export const RealWorldExamples: Story = {
           <div className="flex items-center justify-between">
             <div>
               <label className="font-medium">Theme</label>
-              <p className="text-sm text-muted-foreground">Choose your preferred theme</p>
+              <p className="text-sm text-muted-foreground">
+                Choose your preferred theme
+              </p>
             </div>
             <ModeToggle />
           </div>
@@ -338,18 +209,6 @@ export const RealWorldExamples: Story = {
       description: {
         story:
           "Real-world examples showing ModeToggle in different UI contexts like blog headers, settings panels, and toolbars.",
-      },
-    },
-  },
-};
-
-// Interactive playground
-export const Playground: Story = {
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Interactive playground to test the ModeToggle component. Since it has no props, focus on testing the theme switching functionality and dropdown interactions.",
       },
     },
   },
