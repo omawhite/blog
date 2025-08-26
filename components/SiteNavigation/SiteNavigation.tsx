@@ -8,6 +8,7 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export interface NavigationLink {
   href: string;
@@ -23,7 +24,7 @@ interface SiteNavigationProps {
 export function SiteNavigation({ links, className }: SiteNavigationProps) {
   return (
     <NavigationMenu className={cn("w-full", className)}>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex-1">
         {links.map((link) => (
           <NavigationMenuItem key={link.href}>
             {link.external ? (
@@ -42,6 +43,9 @@ export function SiteNavigation({ links, className }: SiteNavigationProps) {
             )}
           </NavigationMenuItem>
         ))}
+        <NavigationMenuItem className="ml-auto">
+          <ModeToggle />
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );
