@@ -22,6 +22,7 @@ export default async function PostsPage() {
     console.error('Error fetching posts:', error)
     posts = { docs: [] }
   }
+  console.log('Fetched posts:', posts)
 
   return (
     <div className="posts-page">
