@@ -18,13 +18,17 @@
     "generate:db-schema": "payload generate:db-schema",
     "migrate": "payload migrate",
     "seed:posts": "payload run ./scripts/seed-posts.ts",
-    "seed:home": "payload run ./scripts/seed-home-page.ts"
+    "seed:home": "payload run ./scripts/seed-home-page.ts",
+    "seed:user": "payload run ./scripts/seed-user.ts",
+    "seed:all": "pnpm seed:user && pnpm seed:posts && pnpm seed:home",
+    "pre-deploy": "./scripts/pre-deploy.sh"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.53.0",
     "@payloadcms/next": "^3.53.0",
     "@payloadcms/payload-cloud": "^3.53.0",
     "@payloadcms/richtext-lexical": "^3.53.0",
+    "@radix-ui/react-navigation-menu": "^1.2.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "graphql": "^16.11.0",

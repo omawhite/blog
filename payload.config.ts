@@ -15,6 +15,10 @@ import { HomePage } from './globals/HomePage'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const isBuild = process.env.RAILWAY_BUILD === 'true'
+
+const databaseConnectionString = isBuild ? process.env.DATABASE_PUBLIC_URL : process.env.DATABASE_URL
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -31,7 +35,7 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL || '',
+      connectionString: databaseConnectionString,
     },
   }),
   sharp,
