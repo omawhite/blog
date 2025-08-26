@@ -109,28 +109,21 @@ export default async function HomePage() {
   return (
     <div className="home">
       <div className="content">
-        <h1 style={{ textAlign: 'center' }}>{homePageData?.pageTitle || 'Home'}</h1>
+        <h1 className='text-center text-2xl mb-4'>{homePageData?.pageTitle || 'Home'}</h1>
         <BioSection bioData={homePageData?.bio} />
 
         {recentPosts.length > 0 && (
-          <section className="recent-posts" style={{ marginTop: '3rem' }}>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '1.5rem',
-              }}
-            >
+          <section className="recent-posts mt-12">
+            <div className="flex justify-between items-center mb-6">
               <h2>Recent Posts</h2>
               <Link
                 href="/posts"
-                style={{ textDecoration: 'none', color: 'inherit', fontSize: '0.875rem' }}
+                className="no-underline text-inherit text-sm hover:underline"
               >
                 View all posts →
               </Link>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="flex flex-col gap-6">
               {recentPosts.map((post) => (
                 <PostSnippet
                   key={post.id}

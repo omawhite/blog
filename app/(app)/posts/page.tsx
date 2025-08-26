@@ -27,7 +27,7 @@ export default async function PostsPage() {
   return (
     <div className="posts-page">
       <div className="content">
-        <h1>Blog Posts</h1>
+        <h1 className='text-center text-2xl mb-4'>Blog Posts</h1>
         {posts.docs.length === 0 ? (
           <p>No posts published yet.</p>
         ) : (
