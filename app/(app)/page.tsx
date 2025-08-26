@@ -1,12 +1,11 @@
 import { getPayload } from 'payload'
-import React from 'react'
 import Link from 'next/link'
-import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { Metadata } from 'next'
 
 import config from '@/payload.config'
 
 import { PostSnippet } from '@/components/PostSnippet/PostSnippet'
+import { BioSection } from '@/components/BioSection'
 
 async function getHomePageData() {
   const payloadConfig = await config
@@ -111,11 +110,7 @@ export default async function HomePage() {
     <div className="home">
       <div className="content">
         <h1 style={{ textAlign: 'center' }}>{homePageData?.pageTitle || 'Home'}</h1>
-        {homePageData?.bio && (
-          <div className="bio">
-            <RichText data={homePageData.bio} />
-          </div>
-        )}
+        <BioSection bioData={homePageData?.bio} />
 
         {recentPosts.length > 0 && (
           <section className="recent-posts" style={{ marginTop: '3rem' }}>
