@@ -1,5 +1,5 @@
-import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 
 import { cn } from "@/lib/utils";
 

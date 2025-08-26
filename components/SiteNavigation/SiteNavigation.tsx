@@ -1,14 +1,13 @@
 import Link from "next/link";
-
-import { cn } from "@/lib/utils";
+import { ModeToggle } from "@/components/ModeToggle";
 import {
   NavigationMenu,
-  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ModeToggle } from "@/components/ModeToggle";
+import { cn } from "@/lib/utils";
 
 export interface NavigationLink {
   href: string;

@@ -1,1 +1,1 @@
-export { SiteNavigation, type NavigationLink } from "./SiteNavigation";
+export { type NavigationLink, SiteNavigation } from "./SiteNavigation";

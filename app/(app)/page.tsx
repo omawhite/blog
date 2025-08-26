@@ -1,11 +1,10 @@
-import { getPayload } from "payload";
-import Link from "next/link";
 import type { Metadata } from "next";
-
-import config from "@/payload.config";
+import Link from "next/link";
+import { getPayload } from "payload";
+import { BioSection } from "@/components/BioSection";
 
 import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
-import { BioSection } from "@/components/BioSection";
+import config from "@/payload.config";
 
 async function getHomePageData() {
   const payloadConfig = await config;

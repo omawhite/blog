@@ -1,7 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
-import type { Metadata } from "next";
 
 import { getPosts } from "@/lib/posts";
 
