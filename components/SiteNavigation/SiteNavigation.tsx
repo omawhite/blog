@@ -1,23 +1,23 @@
-import * as React from "react"
-import Link from "next/link"
+import Link from "next/link";
+
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/navigation-menu";
 
 export interface NavigationLink {
-  href: string
-  label: string
-  external?: boolean
+  href: string;
+  label: string;
+  external?: boolean;
 }
 
 interface SiteNavigationProps {
-  links: NavigationLink[]
-  className?: string
+  links: NavigationLink[];
+  className?: string;
 }
 
 export function SiteNavigation({ links, className }: SiteNavigationProps) {
@@ -36,15 +36,13 @@ export function SiteNavigation({ links, className }: SiteNavigationProps) {
                 {link.label}
               </NavigationMenuLink>
             ) : (
-              <Link href={link.href} legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  {link.label}
+                <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                  <Link href={link.href}>{link.label}</Link>
                 </NavigationMenuLink>
-              </Link>
             )}
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
