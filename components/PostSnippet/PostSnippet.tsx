@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import { cva, type VariantProps } from "class-variance-authority";
+import type * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const postSnippetVariants = cva(
   "border rounded-lg p-6 space-y-3 transition-colors hover:bg-muted/50",
@@ -21,8 +21,8 @@ const postSnippetVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 const postSnippetTitleVariants = cva(
   "font-semibold tracking-tight hover:underline transition-all duration-200",
@@ -37,8 +37,8 @@ const postSnippetTitleVariants = cva(
     defaultVariants: {
       size: "default",
     },
-  }
-)
+  },
+);
 
 const postSnippetDescriptionVariants = cva(
   "text-muted-foreground leading-relaxed",
@@ -53,33 +53,33 @@ const postSnippetDescriptionVariants = cva(
     defaultVariants: {
       size: "default",
     },
-  }
-)
+  },
+);
 
-const postSnippetDateVariants = cva(
-  "text-muted-foreground",
-  {
-    variants: {
-      size: {
-        default: "text-sm",
-        sm: "text-xs",
-        lg: "text-base",
-      },
+const postSnippetDateVariants = cva("text-muted-foreground", {
+  variants: {
+    size: {
+      default: "text-sm",
+      sm: "text-xs",
+      lg: "text-base",
     },
-    defaultVariants: {
-      size: "default",
-    },
-  }
-)
+  },
+  defaultVariants: {
+    size: "default",
+  },
+});
 
 interface PostSnippetProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof postSnippetVariants> {
-  title: string
-  description?: string
-  publishedAt?: string
-  href: string
-  renderLink?: (props: { href: string; children: React.ReactNode }) => React.ReactNode
+  title: string;
+  description?: string;
+  publishedAt?: string;
+  href: string;
+  renderLink?: (props: {
+    href: string;
+    children: React.ReactNode;
+  }) => React.ReactNode;
 }
 
 function PostSnippet({
@@ -93,9 +93,8 @@ function PostSnippet({
   renderLink,
   ...props
 }: PostSnippetProps) {
-  const LinkComponent = renderLink || (({ href, children }) => (
-    <a href={href}>{children}</a>
-  ))
+  const LinkComponent =
+    renderLink || (({ href, children }) => <a href={href}>{children}</a>);
 
   return (
     <article
@@ -103,9 +102,7 @@ function PostSnippet({
       {...props}
     >
       <h2 className={cn(postSnippetTitleVariants({ size }))}>
-        <LinkComponent href={href}>
-          {title}
-        </LinkComponent>
+        <LinkComponent href={href}>{title}</LinkComponent>
       </h2>
       {publishedAt && (
         <time className={cn(postSnippetDateVariants({ size }))}>
@@ -118,7 +115,7 @@ function PostSnippet({
         </p>
       )}
     </article>
-  )
+  );
 }
 
-export { PostSnippet, postSnippetVariants }
+export { PostSnippet, postSnippetVariants };

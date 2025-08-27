@@ -1,77 +1,77 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from "payload";
 
 export const Posts: CollectionConfig = {
-  slug: 'posts',
+  slug: "posts",
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: "title",
   },
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'title',
-      type: 'text',
+      name: "title",
+      type: "text",
       required: true,
     },
     {
-      name: 'slug',
-      type: 'text',
+      name: "slug",
+      type: "text",
       required: true,
       unique: true,
       hooks: {
         beforeValidate: [
           ({ data, operation }) => {
-            if (operation === 'create' && data?.title && !data?.slug) {
+            if (operation === "create" && data?.title && !data?.slug) {
               return data.title
                 .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/(^-|-$)/g, '')
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
             }
-            return data?.slug
-          }
-        ]
-      }
+            return data?.slug;
+          },
+        ],
+      },
     },
     {
-      name: 'publishedAt',
-      type: 'date',
+      name: "publishedAt",
+      type: "date",
       required: true,
       defaultValue: () => new Date().toISOString(),
     },
     {
-      name: 'lastUpdated',
-      type: 'date',
+      name: "lastUpdated",
+      type: "date",
     },
     {
-      name: 'status',
-      type: 'select',
+      name: "status",
+      type: "select",
       options: [
         {
-          label: 'Draft',
-          value: 'draft',
+          label: "Draft",
+          value: "draft",
         },
         {
-          label: 'Published',
-          value: 'published',
+          label: "Published",
+          value: "published",
         },
       ],
-      defaultValue: 'draft',
+      defaultValue: "draft",
       required: true,
     },
     {
-      name: 'description',
-      type: 'textarea',
+      name: "description",
+      type: "textarea",
     },
     {
-      name: 'featuredImage',
-      type: 'upload',
-      relationTo: 'media',
+      name: "featuredImage",
+      type: "upload",
+      relationTo: "media",
     },
     {
-      name: 'content',
-      type: 'richText',
+      name: "content",
+      type: "richText",
       required: true,
     },
   ],
-}
+};

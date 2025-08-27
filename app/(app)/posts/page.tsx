@@ -1,33 +1,32 @@
-import Link from 'next/link'
-import React from 'react'
-import { PostSnippet } from '@/components/PostSnippet/PostSnippet'
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
 
-import { getPosts } from '@/lib/posts'
+import { getPosts } from "@/lib/posts";
 
 // TODO: Add this back in later
 // export const revalidate = 3600 // Revalidate every hour
 
 export const metadata: Metadata = {
-  title: 'Blog Posts',
-  description: 'Browse all blog posts and articles.',
-}
+  title: "Blog Posts",
+  description: "Browse all blog posts and articles.",
+};
 
 export default async function PostsPage() {
   // biome-ignore lint/suspicious/noImplicitAnyLet: just let it go for now
-  let posts
+  let posts;
   try {
-    posts = await getPosts()
+    posts = await getPosts();
   } catch (error) {
-    console.error('Error fetching posts:', error)
-    posts = { docs: [] }
+    console.error("Error fetching posts:", error);
+    posts = { docs: [] };
   }
-  console.log('Fetched posts:', posts)
+  console.log("Fetched posts:", posts);
 
   return (
     <div className="posts-page">
       <div className="content">
-        <h1>Blog Posts</h1>
+        <h1 className="text-center text-2xl mb-4">Blog Posts</h1>
         {posts.docs.length === 0 ? (
           <p>No posts published yet.</p>
         ) : (
@@ -39,7 +38,9 @@ export default async function PostsPage() {
                 description={post.description || undefined}
                 publishedAt={post.publishedAt || undefined}
                 href={`/posts/${post.slug}`}
-                renderLink={({ href, children }) => <Link href={href}>{children}</Link>}
+                renderLink={({ href, children }) => (
+                  <Link href={href}>{children}</Link>
+                )}
               />
             ))}
           </div>
@@ -49,5 +50,5 @@ export default async function PostsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

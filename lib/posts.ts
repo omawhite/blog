@@ -1,12 +1,12 @@
-import { getPayload } from 'payload'
-import config from '@/payload.config'
+import { getPayload } from "payload";
+import config from "@/payload.config";
 
 export async function getPost(slug: string) {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
+  const payloadConfig = await config;
+  const payload = await getPayload({ config: payloadConfig });
 
   const posts = await payload.find({
-    collection: 'posts',
+    collection: "posts",
     where: {
       and: [
         {
@@ -16,48 +16,48 @@ export async function getPost(slug: string) {
         },
         {
           status: {
-            equals: 'published',
+            equals: "published",
           },
         },
       ],
     },
     limit: 1,
     depth: 2, // Populate related fields like featuredImage
-  })
+  });
 
-  return posts.docs[0] || null
+  return posts.docs[0] || null;
 }
 
 export async function getPosts() {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
+  const payloadConfig = await config;
+  const payload = await getPayload({ config: payloadConfig });
 
   return await payload.find({
-    collection: 'posts',
+    collection: "posts",
     where: {
       status: {
-        equals: 'published',
+        equals: "published",
       },
     },
-    sort: '-publishedAt',
-  })
+    sort: "-publishedAt",
+  });
 }
 
 export async function getAllPostSlugs() {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
+  const payloadConfig = await config;
+  const payload = await getPayload({ config: payloadConfig });
 
   const posts = await payload.find({
-    collection: 'posts',
+    collection: "posts",
     where: {
       status: {
-        equals: 'published',
+        equals: "published",
       },
     },
     select: {
       slug: true,
     },
-  })
+  });
 
-  return posts.docs.map((post) => post.slug)
+  return posts.docs.map((post) => post.slug);
 }
