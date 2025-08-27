@@ -2,7 +2,6 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
 import { getAllPostSlugs, getPost } from "@/lib/posts";
 
 // TODO: Add this back in later

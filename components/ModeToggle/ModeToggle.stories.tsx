@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/useValidAnchor: this is just a story we don't need to be so strict */
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "./ModeToggle";
