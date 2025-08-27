@@ -176,7 +176,7 @@ export const RealWorldExamples: Story = {
         <div className="p-4 space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <label className="font-medium">Theme</label>
+              <span className="font-medium">Theme</span>
               <p className="text-sm text-muted-foreground">
                 Choose your preferred theme
               </p>
