@@ -1,5 +1,6 @@
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getPost } from "@/lib/posts";
@@ -98,9 +99,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
           {post.featuredImage && typeof post.featuredImage === "object" && (
             <div className="featured-image">
-              <img
+              <Image
                 src={`/api/media/file/${post.featuredImage.filename}`}
                 alt={post.featuredImage.alt || post.title}
+                width={800}
+                height={400}
+                className="w-full h-auto"
               />
             </div>
           )}
