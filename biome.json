@@ -15,7 +15,8 @@
       "!build",
       "!.claude",
       "!*.css",
-      "!payload-*.ts",
+      "!payload-types.ts",
+      "!payload-generated-schema.ts",
       "!migrations",
       "!app/(payload)"
     ]
