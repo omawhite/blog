@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteNavigation } from "@/components/SiteNavigation";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,14 +57,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="border-b">
-            <div className="container mx-auto px-4 py-4">
+          <header className="">
+            <div className="container mx-auto px-4 py-4 flex justify-between">
               <SiteNavigation
                 links={[
                   { href: "/", label: "Home" },
                   { href: "/posts", label: "Posts" },
                 ]}
               />
+              <ModeToggle />
             </div>
           </header>
           <main className="container mx-auto py-4 px-4">{children}</main>
