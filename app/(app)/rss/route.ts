@@ -1,6 +1,6 @@
+import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import { NextResponse } from "next/server";
 import { getPosts } from "@/lib/posts";
-import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
 import { generateRSS } from "@/lib/rss";
 import { getBaseUrl } from "@/lib/url";
 
