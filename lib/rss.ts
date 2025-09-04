@@ -18,6 +18,7 @@ export function generateRSS() {
     generator: "Feed for Node.js",
     feedLinks: {
       rss: `${baseUrl}/rss`,
+      atom: `${baseUrl}/atom`,
     },
     author: {
       name: "Omar White",
