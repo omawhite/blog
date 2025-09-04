@@ -1,35 +1,18 @@
 import { NextResponse } from "next/server";
-import { Feed } from "feed";
 import { getPosts } from "@/lib/posts";
 import { convertLexicalToHTML } from "@payloadcms/richtext-lexical/html";
+import { generateRSS } from "@/lib/rss";
+import { getBaseUrl } from "@/lib/url";
 
 export async function GET() {
   try {
-    // Get the domain from environment variable or fallback to localhost
-    const domain = process.env.RAILWAY_PUBLIC_DOMAIN || "http://localhost:3000";
-    const baseUrl = domain.startsWith("http") ? domain : `https://${domain}`;
+    const baseUrl = getBaseUrl();
 
     // Fetch published posts
     const posts = await getPosts();
 
     // Create feed instance
-    const feed = new Feed({
-      title: "My Blog",
-      description: "Latest blog posts and updates",
-      id: baseUrl,
-      link: baseUrl,
-      language: "en",
-      favicon: `${baseUrl}/favicon.ico`,
-      copyright: `All rights reserved ${new Date().getFullYear()}`,
-      updated: new Date(),
-      generator: "Feed for Node.js",
-      feedLinks: {
-        rss: `${baseUrl}/rss`,
-      },
-      author: {
-        name: "Omar White",
-      },
-    });
+    const feed = generateRSS();
 
     // Add posts to feed
     posts.docs.forEach((post) => {
