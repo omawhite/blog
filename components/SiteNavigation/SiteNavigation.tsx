@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ModeToggle } from "@/components/ModeToggle";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -45,9 +44,6 @@ export function SiteNavigation({ links, className }: SiteNavigationProps) {
             )}
           </NavigationMenuItem>
         ))}
-        <NavigationMenuItem className="ml-auto">
-          <ModeToggle />
-        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );

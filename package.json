@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
+    "lint:fix": "biome check --write",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "pnpx chromatic",
@@ -26,7 +27,6 @@
   "dependencies": {
     "@payloadcms/db-postgres": "^3.53.0",
     "@payloadcms/next": "^3.53.0",
-    "@payloadcms/payload-cloud": "^3.53.0",
     "@payloadcms/richtext-lexical": "^3.53.0",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-navigation-menu": "^1.2.14",

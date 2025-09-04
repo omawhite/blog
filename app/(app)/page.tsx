@@ -102,9 +102,6 @@ export default async function HomePage() {
   const homePageData = await getHomePageData();
   const recentPosts = await getRecentPosts();
 
-  console.log("Home page data:", homePageData);
-  console.log("Recent posts:", recentPosts);
-
   return (
     <div className="home">
       <div className="content">
