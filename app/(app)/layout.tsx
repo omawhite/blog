@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   keywords: ["blog", "personal", "writing", "thoughts"],
   authors: [{ name: "Omar White" }],
   creator: "Omar White",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
