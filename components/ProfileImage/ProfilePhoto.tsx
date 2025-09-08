@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useState } from "react";
 
@@ -15,7 +17,7 @@ export interface ProfilePhotoProps {
   /**
    * Size of the profile photo
    */
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl";
   /**
    * Additional CSS classes
    */
@@ -27,6 +29,7 @@ const sizeClasses = {
   md: "h-12 w-12",
   lg: "h-16 w-16",
   xl: "h-24 w-24",
+  "2xl": "h-32 w-32",
 };
 
 export function ProfilePhoto({
@@ -62,7 +65,7 @@ export function ProfilePhoto({
           setImageError(true);
           setImageLoaded(true);
         }}
-        sizes={`${size === "sm" ? "32" : size === "md" ? "48" : size === "lg" ? "64" : "96"}px`}
+        sizes={`${size === "sm" ? "32" : size === "md" ? "48" : size === "lg" ? "64" : size === "xl" ? "96" : "128"}px`}
       />
     </div>
   );
