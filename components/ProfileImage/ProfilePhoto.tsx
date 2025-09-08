@@ -17,7 +17,7 @@ export interface ProfilePhotoProps {
   /**
    * Size of the profile photo
    */
-  size?: "sm" | "md" | "lg" | "xl" | "2xl";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   /**
    * Additional CSS classes
    */
@@ -30,6 +30,18 @@ const sizeClasses = {
   lg: "h-16 w-16",
   xl: "h-24 w-24",
   "2xl": "h-32 w-32",
+  "3xl": "h-40 w-40",
+  "4xl": "h-48 w-48",
+};
+
+const sizePixels = {
+  sm: "32",
+  md: "48",
+  lg: "64",
+  xl: "96",
+  "2xl": "128",
+  "3xl": "160",
+  "4xl": "192",
 };
 
 export function ProfilePhoto({
@@ -65,7 +77,7 @@ export function ProfilePhoto({
           setImageError(true);
           setImageLoaded(true);
         }}
-        sizes={`${size === "sm" ? "32" : size === "md" ? "48" : size === "lg" ? "64" : size === "xl" ? "96" : "128"}px`}
+        sizes={`${sizePixels[size]}px`}
       />
     </div>
   );

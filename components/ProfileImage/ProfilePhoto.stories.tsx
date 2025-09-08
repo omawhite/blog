@@ -13,7 +13,7 @@ const meta = {
 ## Features
 - Circular profile photo display
 - Automatic fallback to profile-fallback.jpg when no image is provided or image fails to load
-- Multiple size variants (sm, md, lg, xl, 2xl)
+- Multiple size variants (sm, md, lg, xl, 2xl, 3xl, 4xl)
 - Next.js Image optimization with proper sizing
 - Smooth loading transitions
 - TypeScript support with full type safety
@@ -49,10 +49,10 @@ The component automatically handles image loading errors and falls back to the d
     },
     size: {
       control: { type: "select" },
-      options: ["sm", "md", "lg", "xl", "2xl"],
+      options: ["sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
       description: "Size variant of the profile photo",
       table: {
-        type: { summary: '"sm" | "md" | "lg" | "xl" | "2xl"' },
+        type: { summary: '"sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl"' },
         category: "Appearance",
       },
     },
@@ -124,6 +124,14 @@ export const Sizes: Story = {
       <div className="text-center">
         <ProfilePhoto size="2xl" alt="2X large profile photo" />
         <p className="text-xs text-muted-foreground mt-2">2X Large</p>
+      </div>
+      <div className="text-center">
+        <ProfilePhoto size="3xl" alt="3X large profile photo" />
+        <p className="text-xs text-muted-foreground mt-2">3X Large</p>
+      </div>
+      <div className="text-center">
+        <ProfilePhoto size="4xl" alt="4X large profile photo" />
+        <p className="text-xs text-muted-foreground mt-2">4X Large</p>
       </div>
     </div>
   ),
