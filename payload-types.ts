@@ -370,6 +370,10 @@ export interface HomePage {
     [k: string]: unknown;
   };
   /**
+   * Your profile picture displayed on the home page
+   */
+  profilePicture?: (number | null) | Media;
+  /**
    * The title that appears in browser tabs and search results
    */
   title: string;
@@ -399,6 +403,7 @@ export interface HomePage {
 export interface HomePageSelect<T extends boolean = true> {
   pageTitle?: T;
   bio?: T;
+  profilePicture?: T;
   title?: T;
   description?: T;
   keywords?: T;

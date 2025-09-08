@@ -360,6 +360,9 @@ export const home_page = pgTable(
     id: serial("id").primaryKey(),
     pageTitle: varchar("page_title").notNull().default("Home"),
     bio: jsonb("bio").notNull(),
+    profilePicture: integer("profile_picture_id").references(() => media.id, {
+      onDelete: "set null",
+    }),
     title: varchar("title").notNull().default("Home Page"),
     description: varchar("description"),
     keywords: varchar("keywords"),
@@ -379,6 +382,9 @@ export const home_page = pgTable(
     }),
   },
   (columns) => ({
+    home_page_profile_picture_idx: index("home_page_profile_picture_idx").on(
+      columns.profilePicture,
+    ),
     home_page_og_image_idx: index("home_page_og_image_idx").on(columns.ogImage),
   }),
 );
@@ -467,6 +473,11 @@ export const relations_payload_migrations = relations(
   () => ({}),
 );
 export const relations_home_page = relations(home_page, ({ one }) => ({
+  profilePicture: one(media, {
+    fields: [home_page.profilePicture],
+    references: [media.id],
+    relationName: "profilePicture",
+  }),
   ogImage: one(media, {
     fields: [home_page.ogImage],
     references: [media.id],
