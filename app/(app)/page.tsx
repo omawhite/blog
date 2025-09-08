@@ -146,7 +146,7 @@ export default async function HomePage() {
           <ProfilePhoto
             src={profilePictureUrl}
             alt={profilePictureAlt}
-            size="2xl"
+            size="4xl"
           />
         </div>
         <BioSection bioData={homePageData?.bio} />
