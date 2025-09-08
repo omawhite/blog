@@ -24,6 +24,15 @@ export const HomePage: GlobalConfig = {
       required: true,
     },
     {
+      name: "profilePicture",
+      type: "upload",
+      relationTo: "media",
+      label: "Profile Picture",
+      admin: {
+        description: "Your profile picture displayed on the home page",
+      },
+    },
+    {
       type: "collapsible",
       label: "SEO",
       fields: [

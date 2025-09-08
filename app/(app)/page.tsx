@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getPayload } from "payload";
 import { BioSection } from "@/components/BioSection";
-
 import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
+import { ProfilePhoto } from "@/components/ProfileImage";
 import config from "@/payload.config";
+import type { HomePage as HomePageType, Media } from "@/payload-types";
 
 async function getHomePageData() {
   const payloadConfig = await config;
@@ -17,6 +18,34 @@ async function getHomePageData() {
     return homePage;
   } catch (error) {
     console.error("Error fetching home page data:", error);
+    return null;
+  }
+}
+
+async function getProfilePicture(
+  profilePicture: HomePageType["profilePicture"],
+): Promise<Media | null> {
+  if (!profilePicture) {
+    return null;
+  }
+
+  // If profilePicture is already an object (Media), return it
+  if (typeof profilePicture === "object") {
+    return profilePicture;
+  }
+
+  // If profilePicture is an ID (number), fetch the Media object
+  const payloadConfig = await config;
+  const payload = await getPayload({ config: payloadConfig });
+
+  try {
+    const media = await payload.findByID({
+      collection: "media",
+      id: profilePicture,
+    });
+    return media;
+  } catch (error) {
+    console.error("Error fetching profile picture:", error);
     return null;
   }
 }
@@ -101,6 +130,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const homePageData = await getHomePageData();
   const recentPosts = await getRecentPosts();
+  const profilePicture = await getProfilePicture(homePageData?.profilePicture);
+
+  const profilePictureUrl = profilePicture?.url || undefined;
+  const profilePictureAlt = profilePicture?.alt || undefined;
 
   return (
     <div className="home">
@@ -108,6 +141,13 @@ export default async function HomePage() {
         <h1 className="text-center text-2xl mb-4">
           {homePageData?.pageTitle || "Home"}
         </h1>
+        <div className="flex justify-center mb-6">
+          <ProfilePhoto
+            src={profilePictureUrl}
+            alt={profilePictureAlt}
+            size="4xl"
+          />
+        </div>
         <BioSection bioData={homePageData?.bio} />
 
         {recentPosts.length > 0 && (

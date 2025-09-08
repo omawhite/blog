@@ -1,0 +1,5 @@
+---
+description: Rule for node package management
+alwaysApply: false
+---
+Always use pnpm as your node package manager
