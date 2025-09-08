@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getPayload } from "payload";
 import { BioSection } from "@/components/BioSection";
-import { ProfilePhoto } from "@/components/ProfileImage";
-
 import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
+import { ProfilePhoto } from "@/components/ProfileImage";
 import config from "@/payload.config";
 import type { HomePage as HomePageType, Media } from "@/payload-types";
 
