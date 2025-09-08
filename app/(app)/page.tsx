@@ -23,7 +23,7 @@ async function getHomePageData() {
 }
 
 async function getProfilePicture(
-  profilePicture: HomePageType["profilePicture"],
+  profilePicture: HomePageType["profilePicture"]
 ): Promise<Media | null> {
   if (!profilePicture) {
     return null;
@@ -102,8 +102,8 @@ export async function generateMetadata(): Promise<Metadata> {
       typeof homePageData.ogImage === "object" && homePageData.ogImage?.url
         ? homePageData.ogImage.url
         : typeof homePageData.ogImage === "string"
-          ? homePageData.ogImage
-          : undefined;
+        ? homePageData.ogImage
+        : undefined;
 
     if (ogImageUrl) {
       metadata.openGraph = {
@@ -134,6 +134,8 @@ export default async function HomePage() {
 
   const profilePictureUrl = profilePicture?.url || undefined;
   const profilePictureAlt = profilePicture?.alt || undefined;
+
+  console.log(homePageData);
 
   return (
     <div className="home">
