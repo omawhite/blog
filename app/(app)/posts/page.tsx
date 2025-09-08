@@ -4,8 +4,9 @@ import { PostSnippet } from "@/components/PostSnippet/PostSnippet";
 
 import { getPosts } from "@/lib/posts";
 
-// TODO: Add this back in later
-// export const revalidate = 3600 // Revalidate every hour
+// Force dynamic rendering with cache revalidation every 5 minutes
+export const dynamic = "force-dynamic";
+export const revalidate = 300; // 5 minutes
 
 export const metadata: Metadata = {
   title: "Blog Posts",
