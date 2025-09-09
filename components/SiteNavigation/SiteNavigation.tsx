@@ -21,7 +21,7 @@ interface SiteNavigationProps {
 
 export function SiteNavigation({ links, className }: SiteNavigationProps) {
   return (
-    <NavigationMenu className={cn("w-full", className)}>
+    <NavigationMenu className={cn("w-full", className)} viewport={false}>
       <NavigationMenuList className="flex-1">
         {links.map((link) => (
           <NavigationMenuItem key={link.href}>
