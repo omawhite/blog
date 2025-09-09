@@ -5,8 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPostSlugs, getPost } from "@/lib/posts";
 
-// TODO: Add this back in later
-// export const revalidate = 3600 // Revalidate every hour
+export const revalidate = 300; // 5 minutes
 
 interface PostPageProps {
   params: Promise<{

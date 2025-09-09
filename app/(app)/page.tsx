@@ -7,6 +7,10 @@ import { ProfilePhoto } from "@/components/ProfileImage";
 import config from "@/payload.config";
 import type { HomePage as HomePageType, Media } from "@/payload-types";
 
+// Force dynamic rendering with cache revalidation every 5 minutes
+export const dynamic = "force-dynamic";
+export const revalidate = 300; // 5 minutes
+
 async function getHomePageData() {
   const payloadConfig = await config;
   const payload = await getPayload({ config: payloadConfig });
@@ -81,7 +85,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Welcome to my blog",
     };
   }
-  //break cache
+
   const metadata: Metadata = {
     title: homePageData.title || homePageData.pageTitle || "Home",
     description: homePageData.description,
@@ -134,6 +138,8 @@ export default async function HomePage() {
 
   const profilePictureUrl = profilePicture?.url || undefined;
   const profilePictureAlt = profilePicture?.alt || undefined;
+
+  console.log(homePageData);
 
   return (
     <div className="home">
