@@ -139,14 +139,9 @@ export default async function HomePage() {
   const profilePictureUrl = profilePicture?.url || undefined;
   const profilePictureAlt = profilePicture?.alt || undefined;
 
-  console.log(homePageData);
-
   return (
     <div className="home">
       <div className="content">
-        <h1 className="text-center text-2xl mb-4">
-          {homePageData?.pageTitle || "Home"}
-        </h1>
         <div className="flex justify-center mb-6">
           <ProfilePhoto
             src={profilePictureUrl}
@@ -154,6 +149,9 @@ export default async function HomePage() {
             size="4xl"
           />
         </div>
+        <h1 className="text-center text-2xl mb-4">
+          {homePageData?.pageTitle || "Home"}
+        </h1>
         <BioSection bioData={homePageData?.bio} />
 
         {recentPosts.length > 0 && (
