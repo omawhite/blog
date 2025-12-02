@@ -36,12 +36,12 @@ function parseFrontmatter(fileContent: string): { metadata: PostMetadata; conten
 }
 
 /**
- * Gets all MDX files in a directory.
+ * Gets all MDX and MD files in a directory.
  * @param dir - The directory path to search
- * @returns Array of MDX filenames
+ * @returns Array of MDX/MD filenames
  */
 function getMDXFiles(dir: string): string[] {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx" || path.extname(file) === ".md");
 }
 
 /**
@@ -74,7 +74,7 @@ function getMDXData(dir: string): Array<{ metadata: PostMetadata; slug: string; 
 }
 
 export function getBlogPosts(): Array<{ metadata: PostMetadata; slug: string; content: string }> {
-  return getMDXData(path.join(process.cwd(), "app", "blog", "posts"));
+  return getMDXData(path.join(process.cwd(), "content",  "posts"));
 }
 
 /**
