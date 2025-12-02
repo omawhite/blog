@@ -2,10 +2,10 @@
 tags:
   - My edits
 title: How I Ended Up A Software Engineer
-date: 2018-02-11T00:00:00.000Z
-lastUpdated: 2025-08-07T04:00:00.000Z
-description: A story about my journey to becoming a software engineer.
-featuredImage: ''
+publishedAt: 2018-02-11T00:00:00.000Z
+lastUpdatedAt: 2025-08-07T04:00:00.000Z
+summary: A story about my journey to becoming a software engineer.
+
 ---
 
 The other day I was cleaning out my inbox when I came across a message from [Code Academy](https://www.codecademy.com/). I quickly deleted the message and unsubscribed from their email updates since I hadn't used the platform in ages. In doing so, I came to the realization that I've come a long way since the beginning of my burgeoning interest in technology. Starting from my senior year of high school to this past year; I've made incredible strides towards my ever evolving goal of becoming an in demand/great engineer.

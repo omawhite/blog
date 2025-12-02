@@ -1,8 +1,8 @@
 ---
 title: So tomorrow I start at Unicycle
-date: 2021-10-24
-lastUpdated: ''
-description: A story about leaving Target and starting at Unicycle
+publishedAt: 2021-10-24
+lastUpdatedAt: ''
+summary: A story about leaving Target and starting at Unicycle
 ---
 
 So tomorrow I start at Unicycle. It will be the second job of my career as a software engineer. After about 4 years at Target its a big change of pace. I'm going from a huge fortune 50 company to a small startup where I'll be like the 3rd or 4th engineer(depending on when the other new person starts). This change has had me reflecting a lot for the past 2 weeks so I wanted to take some time to write about burnout, reflect on leaving target, and talk about taking a break between gigs.

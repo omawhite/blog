@@ -1,8 +1,8 @@
 ---
 title: So I broke my website
-date: 2023-12-10T17:56:17
-lastUpdated: ""
-description: A story about how I broke my website and what I did to prevent that
+publishedAt: 2023-12-10
+lastUpdatedAt: ""
+summary: A story about how I broke my website and what I did to prevent that
   from happening in the future.
 ---
 A few weeks ago I was out at the library working on some side projects to kill time before heading to a movie at my favorite local [popup theater](https://cicadacinema.com), when I noticed I couldn't reach my blog. When I tried to navigate to my site I was met with the a "Connection timed out" in my browser indicating that Cloudflare was having trouble reaching my site.
