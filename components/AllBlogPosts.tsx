@@ -9,6 +9,7 @@ function AllBlogPosts() {
       {posts.map(({ metadata, slug }) => (
         <BlogPostSnippet
           key={slug}
+          slug={slug}
           title={metadata.title}
           publishedAt={metadata.publishedAt}
           lastUpdatedAt={metadata.lastUpdatedAt}

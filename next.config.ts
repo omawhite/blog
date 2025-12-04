@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
 };
 
 const withMDX = createMDX({
+  //Allow both .md and .mdx files to be treated as pages/components
+  extension: /\.(md|mdx)$/,
   // Add markdown plugins here, as desired
 });
 

@@ -41,17 +41,20 @@ export const Multiple: Story = {
     <div className="space-y-8">
       <BlogPostSnippet
         title="Automating My Crate Digging with youtube-dl"
+        slug="automating-crate-digging-youtube-dl"
         publishedAt="2024-01-15"
         summary="Learn how I automated my vinyl record collection discovery process using youtube-dl and custom scripts."
       />
       <BlogPostSnippet
         title="How I Ended Up a Software Engineer"
+        slug="how-i-ended-up-a-software-engineer"
         publishedAt="2024-02-20"
         lastUpdatedAt="2024-03-10"
         summary="A retrospective on my journey into software engineering and the unexpected path that led me here."
       />
       <BlogPostSnippet
         title="So I Broke My Website"
+        slug="so-i-broke-my-website"
         publishedAt="2024-03-05"
         summary="An honest account of a critical deployment error and the lessons I learned from it."
       />
