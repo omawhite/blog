@@ -4,7 +4,7 @@ import PostDate from "./PostDate";
 
 const meta: Meta<typeof PostDate> = {
   component: PostDate,
-  title: "Components/PostDate",
+  title: "Blog/PostDate",
   args: {
     date: "2024-02-20",
   },

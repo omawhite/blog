@@ -4,7 +4,7 @@ import BlogPost from "./BlogPost";
 
 const meta: Meta<typeof BlogPost> = {
   component: BlogPost,
-  title: "Components/BlogPost",
+  title: "Blog/BlogPost",
   args: {
     title: "How I Ended Up a Software Engineer",
     publishedAt: "2024-02-20",
