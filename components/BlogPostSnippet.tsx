@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PublishedDate from "./PublishedDate";
+import PostDate from "./PostDate";
 
 interface BlogPostSnippetProps {
   slug: string;
@@ -21,7 +21,7 @@ export default function BlogPostSnippet({
       <h2>
         <Link href={`/blog/${slug}`}>{title}</Link>
       </h2>
-      <PublishedDate date={publishedAt} />
+      <PostDate date={publishedAt} />
       {lastUpdatedAt && <p>Last updated on: {lastUpdatedAt}</p>}
       <p>{summary}</p>
     </article>

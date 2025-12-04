@@ -1,6 +1,7 @@
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
 import { notFound } from 'next/navigation'
+import BlogPost from "@/components/BlogPost";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -52,7 +53,7 @@ const post = getBlogPosts().find((p) => p.slug === params.slug);
   }
 }
 
-export default async function BlogPost({params}: {params: {slug: string}}) {
+export default async function BlogPostPage({params}: {params: {slug: string}}) {
   const {slug} = await params
   const post = getBlogPosts().find((post) => post.slug === slug)
   if (!post) {
@@ -62,9 +63,11 @@ export default async function BlogPost({params}: {params: {slug: string}}) {
   console.log(post.content)
 
   return (
-    <section>
-      <h1>{post.metadata.title}</h1>
-      <article>{post.content}</article>
-    </section>
+    <BlogPost
+      title={post.metadata.title}
+      publishedAt={post.metadata.publishedAt}
+      lastUpdatedAt={post.metadata.lastUpdatedAt}
+      content={post.content}
+    />
   )
 }
