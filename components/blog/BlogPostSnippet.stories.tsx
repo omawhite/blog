@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
-import BlogPostSnippet from "./BlogPostSnippet";
+import BlogPostSnippet from "../BlogPostSnippet";
 
 const meta: Meta<typeof BlogPostSnippet> = {
   component: BlogPostSnippet,

@@ -1,7 +1,7 @@
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
 import { notFound } from 'next/navigation'
-import BlogPost from "@/components/BlogPost";
+import BlogPost from "@/components/blog/BlogPost";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();

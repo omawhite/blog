@@ -1,5 +1,5 @@
 import { getBlogPosts } from "@/lib/blog";
-import BlogPostSnippet from "./BlogPostSnippet";
+import BlogPostSnippet from "@/components/blog/BlogPostSnippet";
 
 function AllBlogPosts() {
   const posts = getBlogPosts();
