@@ -18,7 +18,7 @@ interface PostListProps {
 
 export default function PostList({ posts }: PostListProps) {
   return (
-    <div>
+    <div className="flex flex-col space-y-1">
       {posts.map(({ metadata, slug }) => (
         <BlogPostSnippet
           key={slug}

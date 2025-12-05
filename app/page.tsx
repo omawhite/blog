@@ -16,11 +16,10 @@ export default function HomePage() {
     .slice(0, 3);
   return (
     <>
-      <section>
-        <Bio />
-      </section>
-      <section>
-        <h2>Recent posts</h2>
+      <Bio />
+
+      <section className="flex flex-col items-center mt-12">
+        <h2 className="text-3xl font-bold tracking-tight">Recent posts</h2>
         <PostList posts={recentPosts} />
       </section>
     </>

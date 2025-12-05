@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Bio() {
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <section className="flex flex-col items-center space-y-4">
       <Image
         src="/images/omar-headshot.jpg"
         alt="Omar"
@@ -16,6 +16,6 @@ export default function Bio() {
         engineering I like to game and make music. Interested in talking to me
         about tech or working with me on a project? Reach out to me here.`}
       </p>
-    </div>
+    </section>
   );
 }
