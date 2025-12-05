@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -24,6 +24,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const navLinks = [
+    { label: "Home", href: "/", key: "home" },
+    { label: "Blog", href: "/blog", key: "blog" },
+    // { label: "Contact", href: "/contact", key: "contact" },
+  ];
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -36,15 +41,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <header>
-            <Navbar
-              links={[
-                { label: "Home", href: "/", key: "home" },
-                { label: "Blog", href: "/blog", key: "blog" },
-                { label: "Contact", href: "/contact", key: "contact" },
-              ]}
-            />
+            <Navbar links={navLinks} />
           </header>
-          <main className="mx-auto px-4 flex">{children}</main>
+          <main className="mx-auto px-4">{children}</main>
         </ThemeProvider>
       </body>
     </html>

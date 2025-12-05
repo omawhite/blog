@@ -23,7 +23,8 @@ export const WithLastUpdated: Story = {
     title: "So I Broke My Website",
     publishedAt: "2024-03-05",
     lastUpdatedAt: "2024-03-10",
-    summary: "An honest account of a critical deployment error and the lessons I learned from it.",
+    summary:
+      "An honest account of a critical deployment error and the lessons I learned from it.",
   },
 };
 

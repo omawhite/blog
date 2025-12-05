@@ -7,7 +7,12 @@ interface BlogPostProps {
   content: string | React.ReactNode;
 }
 
-export default function BlogPost({ title, publishedAt, lastUpdatedAt, content }: BlogPostProps) {
+export default function BlogPost({
+  title,
+  publishedAt,
+  lastUpdatedAt,
+  content,
+}: BlogPostProps) {
   return (
     <section>
       <h1>{title}</h1>
