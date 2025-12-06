@@ -1,11 +1,24 @@
-import { getBlogPosts } from "@/lib/blog";
 import BlogPostSnippet from "@/components/blog/BlogPostSnippet";
 
-function AllBlogPosts() {
-  const posts = getBlogPosts();
+type Post = {
+  slug: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+    lastUpdatedAt?: string;
+    summary: string;
+    image?: string;
+  };
+  content?: string;
+};
 
+interface PostListProps {
+  posts: Post[];
+}
+
+export default function PostList({ posts }: PostListProps) {
   return (
-    <div>
+    <div className="flex flex-col space-y-1">
       {posts.map(({ metadata, slug }) => (
         <BlogPostSnippet
           key={slug}
@@ -19,5 +32,3 @@ function AllBlogPosts() {
     </div>
   );
 }
-
-export default AllBlogPosts;

@@ -1,9 +1,15 @@
-import AllBlogPosts from "@/components/blog/AllBlogPosts";
+import PostList from "@/components/blog/PostList";
+import { getBlogPosts } from "@/lib/blog";
+
+export const metadata = {
+  title: "Blog",
+};
 
 export default function HomePage() {
+  const posts = getBlogPosts();
   return (
-    <main>
-      <AllBlogPosts />
-    </main>
+    <section>
+      <PostList posts={posts} />
+    </section>
   );
 }

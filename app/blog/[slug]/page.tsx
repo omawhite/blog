@@ -1,7 +1,7 @@
+import { notFound } from "next/navigation";
+import BlogPost from "@/components/blog/BlogPost";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
-import { notFound } from 'next/navigation'
-import BlogPost from "@/components/blog/BlogPost";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -10,24 +10,27 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({params} : {params: {slug: string}}) {
-const post = getBlogPosts().find((p) => p.slug === params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = getBlogPosts().find((p) => p.slug === params.slug);
 
- if (!post) {
-    return
+  if (!post) {
+    return;
   }
 
   const {
     title,
     publishedAt: publishedTime,
     lastUpdatedAt,
-    summary: description
+    summary: description,
   } = post.metadata;
   //TODO: implement ogImage stuff
   // let ogImage = image
   //   ? image
   //   : `${baseUrl}/og?title=${encodeURIComponent(title)}`
-
 
   return {
     title,
@@ -35,7 +38,7 @@ const post = getBlogPosts().find((p) => p.slug === params.slug);
     openGraph: {
       title,
       description,
-      type: 'article',
+      type: "article",
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
       // images: [
@@ -45,22 +48,26 @@ const post = getBlogPosts().find((p) => p.slug === params.slug);
       // ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       // images: [ogImage],
     },
-  }
+  };
 }
 
-export default async function BlogPostPage({params}: {params: {slug: string}}) {
-  const {slug} = await params
-  const post = getBlogPosts().find((post) => post.slug === slug)
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = await params;
+  const post = getBlogPosts().find((post) => post.slug === slug);
   if (!post) {
-     notFound()
+    notFound();
   }
 
-  console.log(post.content)
+  console.log(post.content);
 
   return (
     <BlogPost
@@ -69,5 +76,5 @@ export default async function BlogPostPage({params}: {params: {slug: string}}) {
       lastUpdatedAt={post.metadata.lastUpdatedAt}
       content={post.content}
     />
-  )
+  );
 }

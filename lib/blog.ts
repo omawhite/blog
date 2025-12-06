@@ -17,7 +17,10 @@ type PostMetadata = {
  * @param fileContent - The raw file content including frontmatter
  * @returns An object containing parsed metadata and content
  */
-function parseFrontmatter(fileContent: string): { metadata: PostMetadata; content: string } {
+function parseFrontmatter(fileContent: string): {
+  metadata: PostMetadata;
+  content: string;
+} {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
   const frontMatterBlock = match![1];
@@ -41,7 +44,11 @@ function parseFrontmatter(fileContent: string): { metadata: PostMetadata; conten
  * @returns Array of MDX/MD filenames
  */
 function getMDXFiles(dir: string): string[] {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx" || path.extname(file) === ".md");
+  return fs
+    .readdirSync(dir)
+    .filter(
+      (file) => path.extname(file) === ".mdx" || path.extname(file) === ".md",
+    );
 }
 
 /**
@@ -49,7 +56,10 @@ function getMDXFiles(dir: string): string[] {
  * @param filePath - The path to the MDX file
  * @returns An object containing parsed metadata and content
  */
-function readMDXFile(filePath: string): { metadata: PostMetadata; content: string } {
+function readMDXFile(filePath: string): {
+  metadata: PostMetadata;
+  content: string;
+} {
   const rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
 }
@@ -59,7 +69,9 @@ function readMDXFile(filePath: string): { metadata: PostMetadata; content: strin
  * @param dir - The directory path containing MDX files
  * @returns Array of blog post objects with metadata, slug, and content
  */
-function getMDXData(dir: string): Array<{ metadata: PostMetadata; slug: string; content: string }> {
+function getMDXData(
+  dir: string,
+): Array<{ metadata: PostMetadata; slug: string; content: string }> {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file));
@@ -73,8 +85,12 @@ function getMDXData(dir: string): Array<{ metadata: PostMetadata; slug: string; 
   });
 }
 
-export function getBlogPosts(): Array<{ metadata: PostMetadata; slug: string; content: string }> {
-  return getMDXData(path.join(process.cwd(), "content",  "posts"));
+export function getBlogPosts(): Array<{
+  metadata: PostMetadata;
+  slug: string;
+  content: string;
+}> {
+  return getMDXData(path.join(process.cwd(), "content", "posts"));
 }
 
 /**
