@@ -62,19 +62,27 @@ export default async function BlogPostPage({
   params: { slug: string };
 }) {
   const { slug } = await params;
-  const post = getBlogPosts().find((post) => post.slug === slug);
-  if (!post) {
-    notFound();
-  }
+  // Old implementation
+  // const post = getBlogPosts().find((post) => post.slug === slug);
+  // if (!post) {
+  //   notFound();
+  // }
 
-  console.log(post.content);
+  // console.log(post.content);
 
-  return (
-    <BlogPost
-      title={post.metadata.title}
-      publishedAt={post.metadata.publishedAt}
-      lastUpdatedAt={post.metadata.lastUpdatedAt}
-      content={post.content}
-    />
-  );
+  // return (
+  //   <BlogPost
+  //     title={post.metadata.title}
+  //     publishedAt={post.metadata.publishedAt}
+  //     lastUpdatedAt={post.metadata.lastUpdatedAt}
+  //     content={post.content}
+  //   />
+  // );
+
+  //TODO: make this work for both .md and .mdx files
+  const { default: Post } = await import(`@/content/posts/${slug}.md`);
+
+  return <Post />;
 }
+
+export const dynamicParams = false;
