@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-import BlogPost from "@/components/blog/BlogPost";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
 
@@ -24,7 +22,8 @@ export async function generateMetadata({
   const {
     title,
     publishedAt: publishedTime,
-    lastUpdatedAt,
+    //TODO: start using this
+    // lastUpdatedAt,
     summary: description,
   } = post.metadata;
   //TODO: implement ogImage stuff
@@ -60,27 +59,23 @@ export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string };
+  searchParams: URLSearchParams;
 }) {
   const { slug } = await params;
-  // Old implementation
-  // const post = getBlogPosts().find((post) => post.slug === slug);
-  // if (!post) {
-  //   notFound();
-  // }
 
-  // console.log(post.content);
-
-  // return (
-  //   <BlogPost
-  //     title={post.metadata.title}
-  //     publishedAt={post.metadata.publishedAt}
-  //     lastUpdatedAt={post.metadata.lastUpdatedAt}
-  //     content={post.content}
-  //   />
-  // );
-
-  //TODO: make this work for both .md and .mdx files
-  const { default: Post } = await import(`@/content/posts/${slug}.md`);
+  // Try to import the file with .mdx extension first, then fallback to .md
+  let Post: React.ComponentType;
+  try {
+    const mdxModule = await import(`@/content/posts/${slug}.mdx`);
+    Post = mdxModule.default;
+  } catch (mdxError) {
+    console.error(
+      `Failed to load MDX for slug "${slug}", trying MD. Error:`,
+      mdxError,
+    );
+    const mdModule = await import(`@/content/posts/${slug}.md`);
+    Post = mdModule.default;
+  }
 
   return <Post />;
 }
