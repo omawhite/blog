@@ -1,4 +1,4 @@
-import MDXContent from "@/components/blog/MDXContent";
+import BlogPost from "@/components/blog/BlogPost";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
 import { notFound } from "next/navigation";
@@ -78,9 +78,9 @@ export default async function BlogPostPage({
   const { default: Post } = await import(`@/content/posts/${slug}${extension}`);
 
   return (
-    <MDXContent postMetadata={post.metadata}>
+    <BlogPost postMetadata={post.metadata}>
       <Post />
-    </MDXContent>
+    </BlogPost>
   );
 }
 

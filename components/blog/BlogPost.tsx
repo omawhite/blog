@@ -8,7 +8,7 @@ type PostMetadata = {
   image?: string;
 };
 
-interface MDXContentProps {
+interface BlogPostProps {
   children: React.ReactNode;
   postMetadata: PostMetadata;
 }
@@ -17,10 +17,7 @@ interface MDXContentProps {
  * A wrapper component for MDX content that provides consistent styling.
  * Use this component to wrap compiled MDX components for typography and layout.
  */
-export default function MDXContent({
-  children,
-  postMetadata,
-}: MDXContentProps) {
+export default function BlogPost({ children, postMetadata }: BlogPostProps) {
   return (
     <article className="prose prose-neutral dark:prose-invert max-w-none">
       <h1>{postMetadata.title}</h1>
