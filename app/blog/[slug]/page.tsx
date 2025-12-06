@@ -78,7 +78,7 @@ export default async function BlogPostPage({
   const { default: Post } = await import(`@/content/posts/${slug}${extension}`);
 
   return (
-    <MDXContent>
+    <MDXContent postMetadata={post.metadata}>
       <Post />
     </MDXContent>
   );

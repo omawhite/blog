@@ -18,7 +18,13 @@ type Story = StoryObj<typeof MDXContent>;
 
 export const HowIEndedUp: Story = {
   render: () => (
-    <MDXContent>
+    <MDXContent
+      postMetadata={{
+        title: "How I Ended Up a Software Engineer",
+        publishedAt: "2024-01-15",
+        summary: "A journey into software engineering",
+      }}
+    >
       <HowIEndedUpASoftwareEngineer />
     </MDXContent>
   ),
@@ -26,7 +32,13 @@ export const HowIEndedUp: Story = {
 
 export const BrokeMyWebsite: Story = {
   render: () => (
-    <MDXContent>
+    <MDXContent
+      postMetadata={{
+        title: "So I Broke My Website",
+        publishedAt: "2024-02-20",
+        summary: "What happens when things go wrong",
+      }}
+    >
       <SoIBrokeMyWebsite />
     </MDXContent>
   ),
