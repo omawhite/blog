@@ -13,7 +13,7 @@ const withMDX = createMDX({
   options: {
     // Because i'm using turbopack plugins must be specified as strings see: https://nextjs.org/docs/app/guides/mdx#using-plugins-with-turbopack
     remarkPlugins: ["remark-frontmatter", "remark-mdx-frontmatter"],
-    // rehypePlugins: [],
+    rehypePlugins: [],
   },
 });
 
