@@ -1,3 +1,4 @@
+import MDXContent from "@/components/blog/MDXContent";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
 
@@ -13,7 +14,8 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const post = getBlogPosts().find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = getBlogPosts().find((p) => p.slug === slug);
 
   if (!post) {
     return;
@@ -77,7 +79,11 @@ export default async function BlogPostPage({
     Post = mdModule.default;
   }
 
-  return <Post />;
+  return (
+    <MDXContent>
+      <Post />
+    </MDXContent>
+  );
 }
 
 export const dynamicParams = false;
