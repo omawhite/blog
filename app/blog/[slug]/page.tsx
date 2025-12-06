@@ -1,6 +1,7 @@
 import MDXContent from "@/components/blog/MDXContent";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -61,23 +62,20 @@ export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string };
-  searchParams: URLSearchParams;
 }) {
   const { slug } = await params;
+  const post = getBlogPosts().find((p) => p.slug === slug);
 
-  // Try to import the file with .mdx extension first, then fallback to .md
-  let Post: React.ComponentType;
-  try {
-    const mdxModule = await import(`@/content/posts/${slug}.mdx`);
-    Post = mdxModule.default;
-  } catch (mdxError) {
-    console.error(
-      `Failed to load MDX for slug "${slug}", trying MD. Error:`,
-      mdxError,
-    );
-    const mdModule = await import(`@/content/posts/${slug}.md`);
-    Post = mdModule.default;
+  if (!post) {
+    return notFound();
   }
+
+  const { extension } = post.fileMetadata;
+
+  console.log("Loading blog post:", slug);
+  console.log("Using extension:", extension);
+
+  const { default: Post } = await import(`@/content/posts/${slug}${extension}`);
 
   return (
     <MDXContent>
