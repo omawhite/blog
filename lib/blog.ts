@@ -23,7 +23,10 @@ function parseFrontmatter(fileContent: string): {
 } {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
-  const frontMatterBlock = match![1];
+  const frontMatterBlock = match?.[1];
+  if (!frontMatterBlock) {
+    throw new Error("Invalid frontmatter");
+  }
   const content = fileContent.replace(frontmatterRegex, "").trim();
   const frontMatterLines = frontMatterBlock.trim().split("\n");
   const metadata: Partial<PostMetadata> = {};
