@@ -1,0 +1,55 @@
+version: 2
+updates:
+  # Production dependencies - major updates
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      production-major:
+        dependency-type: production
+        update-types:
+          - major
+    open-pull-requests-limit: 10
+    target-branch: main
+
+  # Production dependencies - minor and patch updates
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      production-minor-patch:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 20
+    target-branch: main
+
+  # Development dependencies - major updates
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      development-major:
+        dependency-type: development
+        update-types:
+          - major
+    open-pull-requests-limit: 10
+    target-branch: main
+
+  # Development dependencies - minor and patch updates
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      development-minor-patch:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    open-pull-requests-limit: 20
+    target-branch: main
