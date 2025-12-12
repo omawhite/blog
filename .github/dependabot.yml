@@ -1,55 +1,31 @@
 version: 2
 updates:
-  # Production dependencies - major updates
-  - package-ecosystem: npm
-    directory: "/"
+  # Keep npm dependencies up-to-date
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: weekly
+      interval: 'daily'
     groups:
-      production-major:
-        dependency-type: production
+      nextjs:
+        patterns:
+          - 'next'
+          - '@next/*'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@react/*'
+      storybook:
+        patterns:
+          - 'storybook'
+          - '@storybook/*'
+      minor-and-patch:
         update-types:
-          - major
-    open-pull-requests-limit: 10
-    target-branch: main
+          - 'minor'
+          - 'patch'
 
-  # Production dependencies - minor and patch updates
-  - package-ecosystem: npm
-    directory: "/"
+  # Keep GitHub Actions up-to-date
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: weekly
-    groups:
-      production-minor-patch:
-        dependency-type: production
-        update-types:
-          - minor
-          - patch
-    open-pull-requests-limit: 20
-    target-branch: main
-
-  # Development dependencies - major updates
-  - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: weekly
-    groups:
-      development-major:
-        dependency-type: development
-        update-types:
-          - major
-    open-pull-requests-limit: 10
-    target-branch: main
-
-  # Development dependencies - minor and patch updates
-  - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: weekly
-    groups:
-      development-minor-patch:
-        dependency-type: development
-        update-types:
-          - minor
-          - patch
-    open-pull-requests-limit: 20
-    target-branch: main
+      interval: 'daily'
