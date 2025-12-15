@@ -1,26 +1,31 @@
 import PostDate from "./PostDate";
 
-interface BlogPostProps {
+type PostMetadata = {
   title: string;
   publishedAt: string;
   lastUpdatedAt?: string;
-  content: string | React.ReactNode;
+  summary: string;
+  image?: string;
+};
+
+interface BlogPostProps {
+  children: React.ReactNode;
+  postMetadata: PostMetadata;
 }
 
-export default function BlogPost({
-  title,
-  publishedAt,
-  lastUpdatedAt,
-  content,
-}: BlogPostProps) {
+/**
+ * A wrapper component for MDX content that provides consistent styling.
+ * Use this component to wrap compiled MDX components for typography and layout.
+ */
+export default function BlogPost({ children, postMetadata }: BlogPostProps) {
   return (
-    <section>
-      <h1>{title}</h1>
-      <PostDate date={publishedAt} />
-      {lastUpdatedAt && (
-        <PostDate date={lastUpdatedAt} label={"Last updated on:"} />
+    <article className="prose prose-neutral dark:prose-invert max-w-none">
+      <h1>{postMetadata.title}</h1>
+      <PostDate date={postMetadata.publishedAt} />
+      {postMetadata.lastUpdatedAt && (
+        <PostDate date={postMetadata.lastUpdatedAt} label="Last updated on:" />
       )}
-      <article>{content}</article>
-    </section>
+      {children}
+    </article>
   );
 }

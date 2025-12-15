@@ -1,7 +1,7 @@
-import { notFound } from "next/navigation";
 import BlogPost from "@/components/blog/BlogPost";
 import { getBlogPosts } from "@/lib/blog";
 import { baseUrl } from "../../sitemap";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -15,7 +15,8 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const post = getBlogPosts().find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = getBlogPosts().find((p) => p.slug === slug);
 
   if (!post) {
     return;
@@ -24,7 +25,8 @@ export async function generateMetadata({
   const {
     title,
     publishedAt: publishedTime,
-    lastUpdatedAt,
+    //TODO: start using this
+    // lastUpdatedAt,
     summary: description,
   } = post.metadata;
   //TODO: implement ogImage stuff
@@ -62,19 +64,24 @@ export default async function BlogPostPage({
   params: { slug: string };
 }) {
   const { slug } = await params;
-  const post = getBlogPosts().find((post) => post.slug === slug);
+  const post = getBlogPosts().find((p) => p.slug === slug);
+
   if (!post) {
-    notFound();
+    return notFound();
   }
 
-  console.log(post.content);
+  const { extension } = post.fileMetadata;
+
+  console.log("Loading blog post:", slug);
+  console.log("Using extension:", extension);
+
+  const { default: Post } = await import(`@/content/posts/${slug}${extension}`);
 
   return (
-    <BlogPost
-      title={post.metadata.title}
-      publishedAt={post.metadata.publishedAt}
-      lastUpdatedAt={post.metadata.lastUpdatedAt}
-      content={post.content}
-    />
+    <BlogPost postMetadata={post.metadata}>
+      <Post />
+    </BlogPost>
   );
 }
+
+export const dynamicParams = false;

@@ -13,6 +13,14 @@ type PostMetadata = {
 };
 
 /**
+ * Represents file-level metadata for a blog post.
+ */
+type FileMetadata = {
+  filePath: string;
+  extension: string;
+};
+
+/**
  * Parses YAML frontmatter from markdown content.
  * @param fileContent - The raw file content including frontmatter
  * @returns An object containing parsed metadata and content
@@ -23,7 +31,10 @@ function parseFrontmatter(fileContent: string): {
 } {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
-  const frontMatterBlock = match![1];
+  const frontMatterBlock = match?.[1];
+  if (!frontMatterBlock) {
+    throw new Error("Invalid frontmatter");
+  }
   const content = fileContent.replace(frontmatterRegex, "").trim();
   const frontMatterLines = frontMatterBlock.trim().split("\n");
   const metadata: Partial<PostMetadata> = {};
@@ -67,20 +78,29 @@ function readMDXFile(filePath: string): {
 /**
  * Gets all MDX blog posts from a directory with their metadata and slugs.
  * @param dir - The directory path containing MDX files
- * @returns Array of blog post objects with metadata, slug, and content
+ * @returns Array of blog post objects with metadata, slug, content, and fileMetadata
  */
-function getMDXData(
-  dir: string,
-): Array<{ metadata: PostMetadata; slug: string; content: string }> {
+function getMDXData(dir: string): Array<{
+  metadata: PostMetadata;
+  slug: string;
+  content: string;
+  fileMetadata: FileMetadata;
+}> {
   const mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
-    const { metadata, content } = readMDXFile(path.join(dir, file));
+    const fullPath = path.join(dir, file);
+    const { metadata, content } = readMDXFile(fullPath);
     const slug = path.basename(file, path.extname(file));
+    const extension = path.extname(file);
 
     return {
       metadata,
       slug,
       content,
+      fileMetadata: {
+        filePath: fullPath,
+        extension,
+      },
     };
   });
 }
@@ -89,6 +109,7 @@ export function getBlogPosts(): Array<{
   metadata: PostMetadata;
   slug: string;
   content: string;
+  fileMetadata: FileMetadata;
 }> {
   return getMDXData(path.join(process.cwd(), "content", "posts"));
 }

@@ -25,7 +25,9 @@ export default function BlogPostSnippet({
       </h2>
       <div className="text-sm text-muted-foreground">
         <PostDate date={publishedAt} />
-        {lastUpdatedAt && <p>Last updated on: {lastUpdatedAt}</p>}
+        {lastUpdatedAt && (
+          <PostDate date={lastUpdatedAt} label="Last updated on:" />
+        )}
       </div>
       <p className="leading-relaxed text-muted-foreground">{summary}</p>
     </article>
