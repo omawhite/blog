@@ -8,7 +8,7 @@ export default function Bio() {
         alt="Omar"
         width={150}
         height={150}
-        className="rounded-full"
+        className="rounded-full w-[150px] h-[150px] object-cover"
       />
       <p className="text-center max-w-md">
         {`Hi my name is Omar, I'm a software engineer that specializes in creating
