@@ -8,9 +8,9 @@ export default function Bio() {
         alt="Omar"
         width={150}
         height={150}
-        className="rounded-full"
+        className="rounded-full w-[150px] h-[150px] object-cover"
       />
-      <p className="text-center max-w-md">
+      <p className="text-center max-w-lg">
         {`Hi my name is Omar, I'm a software engineer that specializes in creating
         great front end experiences, primarily using react. When I'm not
         engineering I like to game and make music. Interested in talking to me
