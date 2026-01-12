@@ -44,7 +44,7 @@ export default function RootLayout({
           <header>
             <Navbar links={navLinks} />
           </header>
-          <main className="mx-auto px-4">{children}</main>
+          <main className="max-w-3xl mx-auto px-4">{children}</main>
         </ThemeProvider>
         <UmamiAnalytics />
       </body>
