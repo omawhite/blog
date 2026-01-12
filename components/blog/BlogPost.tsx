@@ -19,7 +19,7 @@ interface BlogPostProps {
  */
 export default function BlogPost({ children, postMetadata }: BlogPostProps) {
   return (
-    <article className="prose prose-neutral dark:prose-invert max-w-none">
+    <article className="prose prose-neutral dark:prose-invert max-w-none pb-12">
       <h1>{postMetadata.title}</h1>
       <PostDate date={postMetadata.publishedAt} />
       {postMetadata.lastUpdatedAt && (
