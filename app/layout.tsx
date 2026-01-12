@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { UmamiAnalytics } from "@/components/UmamiAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           </header>
           <main className="mx-auto px-4">{children}</main>
         </ThemeProvider>
+        <UmamiAnalytics />
       </body>
     </html>
   );
