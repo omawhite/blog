@@ -1,13 +1,15 @@
 export const dynamic = "force-static";
 
-//TODO: Update the baseUrl to your domain name
-export const baseUrl = "https://yourdomain.com"; // Replace with your actual base URL
+import { getBlogPosts } from "@/lib/blog";
+
+export const baseUrl = "https://omar.louiswhite.me";
 
 export default function sitemap() {
-  //TODO: make this accurate
-  const routes = ["/", "/blog"]; // Add your routes here
+  const routes = ["/", "/blog"];
 
-  return routes.map((route) => {
+  const blogPosts = getBlogPosts().map((post) => `/blog/${post.slug}`);
+
+  return [...routes, ...blogPosts].map((route) => {
     return `${baseUrl}${route}`;
   });
 }
