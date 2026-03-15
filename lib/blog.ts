@@ -4,7 +4,7 @@ import path from "node:path";
 /**
  * Represents the metadata for a blog post.
  */
-type PostMetadata = {
+export type PostMetadata = {
   title: string;
   publishedAt: string;
   lastUpdatedAt?: string;

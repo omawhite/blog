@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import Bio from "@/components/Bio";
 import PostList from "@/components/blog/PostList";
 
