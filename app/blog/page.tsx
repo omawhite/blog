@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import PostList from "@/components/blog/PostList";
 import { getBlogPosts } from "@/lib/blog";
 
