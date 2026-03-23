@@ -23,6 +23,10 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+    ignore:
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
 
   # Keep GitHub Actions up-to-date
   - package-ecosystem: 'github-actions'
