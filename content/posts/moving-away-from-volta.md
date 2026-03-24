@@ -1,5 +1,5 @@
 ---
-title: Moviing Away from Volta
+title: Moving Away from Volta
 publishedAt: 2026-03-22
 summary: About how I moved from Volta to Mise for managing my node versions
 ---
