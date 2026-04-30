@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { UmamiAnalytics } from "@/components/UmamiAnalytics";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             <Navbar links={navLinks} />
           </header>
           <main className="max-w-3xl mx-auto px-4">{children}</main>
+          <Footer />
         </ThemeProvider>
         <UmamiAnalytics />
       </body>
